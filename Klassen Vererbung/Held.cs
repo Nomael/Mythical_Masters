@@ -12,10 +12,11 @@ namespace Klassen_Vererbung
         private int Intilligenz;
         
 
-        Held()
-        
+        Held(int pstärke, int pGeschieck, int pIntilligenz)
         { 
-        
+             Stärke = pstärke;
+             Geschieck = pGeschieck;
+            Intilligenz = pIntilligenz;
         }
 
         void angriff()

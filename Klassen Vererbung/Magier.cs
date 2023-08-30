@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
+using System.Security;
 using System.Text;
 
 namespace Klassen_Vererbung
@@ -9,9 +11,13 @@ namespace Klassen_Vererbung
     {
         int mana; 
 
+       public Magier(int pMana, int pstärke, int pGeschieck, int pIntilligenz) : base(pstärke,pGeschieck,pIntilligenz)
+        
+        { 
+            mana = 0;
+        }
 
-
-
+        
 
 
 
