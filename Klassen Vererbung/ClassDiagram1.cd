@@ -32,5 +32,12 @@
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Klassen_Vererbung.Krieger">
+    <Position X="8.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Krieger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
