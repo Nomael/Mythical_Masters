@@ -7,6 +7,14 @@ namespace Klassen_Vererbung
 {
     public class Magier : Held
     {
+        int mana; 
+
+
+
+
+
+
+
         public void Eis()
         {
             throw new System.NotImplementedException();

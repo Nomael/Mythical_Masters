@@ -43,14 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assasine.cs" />
-    <Compile Include="Dieb.cs" />
-    <Compile Include="EisMagier.cs" />
-    <Compile Include="FeuerMagier.cs" />
     <Compile Include="Held.cs" />
-    <Compile Include="Kaputmacher.cs" />
-    <Compile Include="Krieger.cs" />
-    <Compile Include="Langschwert.cs" />
     <Compile Include="Magier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
