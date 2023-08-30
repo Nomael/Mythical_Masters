@@ -10,5 +10,17 @@ namespace Klassen_Vererbung
         private int Stärke;
         private int Geschieck;
         private int Intilligenz;
+        
+
+        Held()
+        
+        { 
+        
+        }
+
+        void angriff()
+        {
+
+        }
     }
 }
