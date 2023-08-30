@@ -12,7 +12,7 @@ namespace Klassen_Vererbung
         private int Intilligenz;
         
 
-        Held(int pstärke, int pGeschieck, int pIntilligenz)
+        public Held(int pstärke, int pGeschieck, int pIntilligenz)
         { 
              Stärke = pstärke;
              Geschieck = pGeschieck;
