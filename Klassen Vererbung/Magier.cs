@@ -7,14 +7,19 @@ using System.Text;
 
 namespace Klassen_Vererbung
 {
+    
     public class Magier : Held
     {
-        int mana; 
+        double mana_bonus = 0.1;
+        int dumm = 10;
 
-       public Magier(int pMana, int pstärke, int pGeschieck, int pIntilligenz) : base(pstärke,pGeschieck,pIntilligenz)
+
+        public Magier(int pMana, int pstärke, int pGeschieck, int pIntilligenz) : base(pstärke, pGeschieck,pIntilligenz)
         
-        { 
-            mana = 0;
+        {
+            
+            int Sterke = 10;
+            mana_bonus = 0;
         }
 
         
@@ -25,5 +30,6 @@ namespace Klassen_Vererbung
         {
             throw new System.NotImplementedException();
         }
+        
     }
 }
