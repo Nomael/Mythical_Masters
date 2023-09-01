@@ -8,6 +8,8 @@ namespace Klassen_Vererbung
 {
     internal class Program
     {
+        Held 
+
         static void Main(string[] args)
         {
         }

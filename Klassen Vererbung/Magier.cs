@@ -17,7 +17,7 @@ namespace Klassen_Vererbung
         public Magier(int pMana, int pstärke, int pGeschieck, int pIntilligenz) : base(pstärke, pGeschieck,pIntilligenz)
         
         {
-            
+             
             int Sterke = 10;
             mana_bonus = 0;
         }
