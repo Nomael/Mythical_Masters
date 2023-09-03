@@ -10,26 +10,22 @@ namespace Klassen_Vererbung
     
     public class Magier : Held
     {
-        double mana_bonus = 0.1;
-        int dumm = 10;
+        int mana = 1;
+        
 
 
-        public Magier(int pMana, int pstärke, int pGeschieck, int pIntilligenz) : base(pstärke, pGeschieck,pIntilligenz)
+        public Magier(int pMana, int pstärke, int pGeschieck, int pIntilligenz, string pname) : base(pstärke, pGeschieck,pIntilligenz,pname)
         
         {
              
             int Sterke = 10;
-            mana_bonus = 0;
+            mana = 0;
         }
 
         
 
 
 
-        public void Eis()
-        {
-            throw new System.NotImplementedException();
-        }
         
     }
 }
