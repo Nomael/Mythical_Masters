@@ -29,6 +29,21 @@ namespace Mythical_Masters_2
 
 
 
+        public override int angriff(int bonus_wert)
+        {
+            return base.angriff(bonus_wert) + Täuschung + this.Geschieck;
+        }
+
+        public override int rechne_abwehr(int bonus_wert)
+        {
+            return base.rechne_abwehr(bonus_wert) + Täuschung + this.Geschieck;
+        }
+
+
+
+
+
+
 
     }
 }

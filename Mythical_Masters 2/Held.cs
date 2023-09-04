@@ -11,6 +11,7 @@ namespace Mythical_Masters_2
         public int Stärke;
         public int Geschieck;
         public int Intilligenz;
+        
         public string name;
 
 
@@ -23,10 +24,15 @@ namespace Mythical_Masters_2
             Intilligenz = pIntilligenz;
         }
 
-        public virtual int angriff()
+        public virtual int angriff(int bonus_wert)
         {
-            return Stärke;
+            return Stärke + bonus_wert;
 
+        }
+
+        public virtual int rechne_abwehr(int bonus_wert)
+        {
+            return Geschieck + bonus_wert;
         }
 
 

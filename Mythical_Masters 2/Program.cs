@@ -59,9 +59,10 @@ namespace Mythical_Masters_2
             Console.WriteLine("Gebe einen Namen ein : ");
             string name = Console.ReadLine();
 
-            int stärke = zufall.Next(1, 201); // Zufällige Stärke zwischen 1 und 200
-            int geschick = zufall.Next(1, 201); // Zufälliges Geschick zwischen 1 und 200
-            int intelligenz = zufall.Next(1, 201); // Zufällige Intelligenz zwischen 1 und 200
+            int stärke = zufall.Next(1, 16); // Zufällige Stärke zwischen 1 und 200
+            int geschick = zufall.Next(1, 16); // Zufälliges Geschick zwischen 1 und 200
+            int intelligenz = zufall.Next(1, 16); // Zufällige Intelligenz zwischen 1 und 200
+           
             figur.Stärke = stärke;
             figur.Geschieck = geschick;
             figur.Intilligenz = intelligenz;
@@ -70,22 +71,29 @@ namespace Mythical_Masters_2
 
             if (figur is Magier)
             {
-                int mana = zufall.Next(1, 201); // Zufälliges Mana zwischen 1 und 200
+                int mana = zufall.Next(1, 16); // Zufälliges Mana zwischen 1 und 200
                 ((Magier)figur).mana = mana;
+                geschick = Math.Abs(intelligenz - stärke);
+                figur.Stärke = stärke;
+
             }
             else if (figur is Schurke)
             {
-                int täuschung = zufall.Next(1, 201); // Zufällige Täuschung zwischen 1 und 200
+                int täuschung = zufall.Next(1, 16); // Zufällige Täuschung zwischen 1 und 200
                 ((Schurke)figur).Täuschung = täuschung;
+                stärke = Math.Abs(geschick - intelligenz);
+                figur.Stärke = stärke;
             }
             else if (figur is Krieger)
             {
-                int wut = zufall.Next(1, 201); // Zufällige Wut zwischen 1 und 200
+                int wut = zufall.Next(1, 16); // Zufällige Wut zwischen 1 und 200
                 ((Krieger)figur).Wut = wut;
+                intelligenz = Math.Abs(stärke - geschick);
+                figur.Intilligenz = intelligenz;
+                Console.WriteLine(intelligenz + geschick + stärke);
+                Console.ReadKey();
             }
 
-            Console.WriteLine("(END) = Zurück");
-            Console.WriteLine("########");
             Console.Clear();
 
             return figur;
@@ -209,7 +217,7 @@ namespace Mythical_Masters_2
                 Console.WriteLine($"Stärke: {figur.Stärke}");
                 Console.WriteLine($"Geschick: {figur.Geschieck}");
                 Console.WriteLine($"Intelligenz: {figur.Intilligenz}");
-
+                
                 if (figur is Magier)
                 {
                     Console.WriteLine($"Mana: {((Magier)figur).mana}");
@@ -261,6 +269,8 @@ namespace Mythical_Masters_2
                     case "2":
                         ZeigeHeldenliste(Heldenliste);
                         Console.ReadKey();
+                        break;
+                    case "3":
 
                         break;
 

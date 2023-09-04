@@ -26,6 +26,19 @@ namespace Mythical_Masters_2
             // You can add any additional initialization logic here if needed
         }
 
+       
+
+        public override int angriff(int bonus_wert)
+        {
+            return base.angriff(bonus_wert) + mana + this.Intilligenz;
+        }
+
+        public override int rechne_abwehr(int bonus_wert)
+        {
+            return base.rechne_abwehr(bonus_wert) + mana + this.Intilligenz;
+        }
+
+
 
 
 
