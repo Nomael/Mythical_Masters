@@ -4,11 +4,93 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using System.Net;
+using System.Net.Sockets;
+
 
 namespace Mythical_Masters_2
 {
     internal class Program
     {
+        class Server
+        {
+            static string get_data()
+            {
+                // IP-Endpunkt, auf den der Server lauschen wird
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 4201); // Hier die gewünschte Portnummer angeben
+
+                // TCP-Listener erstellen
+                TcpListener listener = new TcpListener(endPoint);
+
+                listener.Start();
+                Console.WriteLine("Server gestartet. Warte auf Verbindung...");
+
+                // Auf eingehende Verbindung warten
+                TcpClient client = listener.AcceptTcpClient();
+                Console.WriteLine("Client verbunden.");
+
+                // Daten vom Client empfangen
+                NetworkStream stream = client.GetStream();
+                byte[] buffer = new byte[1024];
+                int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                string receivedData = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+
+                Console.WriteLine("Empfangene Daten: " + receivedData);
+                Console.ReadKey();
+                Console.ReadKey();
+                // Hier kannst du die empfangenen Daten weiterverarbeiten
+
+                // Verbindung schließen
+                client.Close();
+                listener.Stop();
+                return receivedData;
+            }
+        }
+
+
+        static Held ZufälligeHeldenwerte(Held figur)
+        {
+            Random zufall = new Random();
+
+            Console.Clear();
+
+            Console.WriteLine("########");
+            Console.WriteLine("Gebe einen Namen ein : ");
+            string name = Console.ReadLine();
+
+            int stärke = zufall.Next(1, 201); // Zufällige Stärke zwischen 1 und 200
+            int geschick = zufall.Next(1, 201); // Zufälliges Geschick zwischen 1 und 200
+            int intelligenz = zufall.Next(1, 201); // Zufällige Intelligenz zwischen 1 und 200
+            figur.Stärke = stärke;
+            figur.Geschieck = geschick;
+            figur.Intilligenz = intelligenz;
+            figur.name= name;
+            
+
+            if (figur is Magier)
+            {
+                int mana = zufall.Next(1, 201); // Zufälliges Mana zwischen 1 und 200
+                ((Magier)figur).mana = mana;
+            }
+            else if (figur is Schurke)
+            {
+                int täuschung = zufall.Next(1, 201); // Zufällige Täuschung zwischen 1 und 200
+                ((Schurke)figur).Täuschung = täuschung;
+            }
+            else if (figur is Krieger)
+            {
+                int wut = zufall.Next(1, 201); // Zufällige Wut zwischen 1 und 200
+                ((Krieger)figur).Wut = wut;
+            }
+
+            Console.WriteLine("(END) = Zurück");
+            Console.WriteLine("########");
+            Console.Clear();
+
+            return figur;
+        }
+
 
         static Held Heldenwerte(Held Figur)
         {
@@ -53,8 +135,8 @@ namespace Mythical_Masters_2
 
             }
 
-            Console.WriteLine("(END) = Zurück");
-            Console.WriteLine("########");
+           
+           
             Console.Clear() ;
             return Figur;
         }
@@ -79,19 +161,32 @@ namespace Mythical_Masters_2
                 {
                     case "1":
                         Figur = new Magier();
-                        Figur = Heldenwerte(Figur);
+                        
+                       
                         goto default;
                     case "2":
                         Figur = new Krieger();
-                        Figur = Heldenwerte(Figur);
+                       
                         goto default;
                     case "3":
                         Figur = new Schurke();
-                        Figur = Heldenwerte(Figur);
+                        
                         goto default;
 
 
                     default:
+                        Console.WriteLine("Zufällige werte ? ");
+                        Console.WriteLine(" JA : 1 ");
+                        Console.WriteLine(" NEIN : 2 ");
+                        eingabe = Convert.ToString(Console.ReadLine()).ToLower();
+                        if (eingabe == "1")
+                        {
+                            Figur = ZufälligeHeldenwerte(Figur);
+                        }
+                        else if (eingabe == "2")
+                        {
+                            Figur = Heldenwerte(Figur);
+                        }
                         eingabe = "end";
                         break;
 
