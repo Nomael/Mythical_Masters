@@ -59,41 +59,39 @@ namespace Mythical_Masters_2
             Console.WriteLine("Gebe einen Namen ein : ");
             string name = Console.ReadLine();
 
-            int stärke = zufall.Next(1, 16); // Zufällige Stärke zwischen 1 und 200
-            int geschick = zufall.Next(1, 16); // Zufälliges Geschick zwischen 1 und 200
-            int intelligenz = zufall.Next(1, 16); // Zufällige Intelligenz zwischen 1 und 200
-           
-            figur.Stärke = stärke;
-            figur.Geschieck = geschick;
-            figur.Intilligenz = intelligenz;
-            figur.name= name;
-            
+            do
+            {
+                int stärke = zufall.Next(1, 16); // Zufällige Stärke zwischen 1 und 200
+                int geschick = zufall.Next(1, 16); // Zufälliges Geschick zwischen 1 und 200
+                int intelligenz = zufall.Next(1, 16); // Zufällige Intelligenz zwischen 1 und 200
 
-            if (figur is Magier)
-            {
-                int mana = zufall.Next(1, 16); // Zufälliges Mana zwischen 1 und 200
-                ((Magier)figur).mana = mana;
-                geschick = Math.Abs(intelligenz - stärke);
                 figur.Stärke = stärke;
-
-            }
-            else if (figur is Schurke)
-            {
-                int täuschung = zufall.Next(1, 16); // Zufällige Täuschung zwischen 1 und 200
-                ((Schurke)figur).Täuschung = täuschung;
-                stärke = Math.Abs(geschick - intelligenz);
-                figur.Stärke = stärke;
-            }
-            else if (figur is Krieger)
-            {
-                int wut = zufall.Next(1, 16); // Zufällige Wut zwischen 1 und 200
-                ((Krieger)figur).Wut = wut;
-                intelligenz = Math.Abs(stärke - geschick);
+                figur.Geschieck = geschick;
                 figur.Intilligenz = intelligenz;
-                Console.WriteLine(intelligenz + geschick + stärke);
-                Console.ReadKey();
-            }
+                figur.name = name;
 
+
+                if (figur is Magier)
+                {
+                    int mana = zufall.Next(1, 16); // Zufälliges Mana zwischen 1 und 200
+                    ((Magier)figur).mana = mana;
+                    intelligenz = Math.Abs(stärke - geschick);
+                }
+                else if (figur is Schurke)
+                {
+                    int täuschung = zufall.Next(1, 16); // Zufällige Täuschung zwischen 1 und 200
+                    ((Schurke)figur).Täuschung = täuschung;
+                }
+                else if (figur is Krieger)
+                {
+                    int wut = zufall.Next(1, 16); // Zufällige Wut zwischen 1 und 200
+                    ((Krieger)figur).Wut = wut;
+                }
+
+            } while (figur.Stärke + figur.Geschieck + figur.Intilligenz > 30);
+
+            Console.WriteLine(figur.Stärke + figur.Geschieck + figur.Intilligenz);
+            Console.ReadKey();
             Console.Clear();
 
             return figur;
