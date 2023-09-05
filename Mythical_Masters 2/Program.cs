@@ -90,8 +90,7 @@ namespace Mythical_Masters_2
 
             } while (figur.Stärke + figur.Geschieck + figur.Intilligenz > 30);
 
-            Console.WriteLine(figur.Stärke + figur.Geschieck + figur.Intilligenz);
-            Console.ReadKey();
+            
             Console.Clear();
 
             return figur;
@@ -260,8 +259,8 @@ namespace Mythical_Masters_2
                         if (TestHeld != null)
                         {
                             Heldenliste.Add(TestHeld);
-                            Console.WriteLine(Heldenliste[0].name);
-                            Console.ReadKey();
+                           // Console.WriteLine(Heldenliste[0].name);
+                            ///Console.ReadKey();
                         };
                         break;
                     case "2":
