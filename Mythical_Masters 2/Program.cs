@@ -53,17 +53,17 @@ namespace Mythical_Masters_2
             Held held = new Held();
             int nummer;
             Random random= new Random();
-            nummer = random.Next(0, 2);
+            nummer = random.Next(1, 4);
 
             switch (nummer)
             {
-                case 0:
+                case 1:
                     held = new Krieger();
                     break;
-                case 1:
+                case 2:
                     held = new Magier();
                     break;
-                case 2:
+                case 3:
                     held = new Schurke();
                     break;
                 default: held = new Schurke();
