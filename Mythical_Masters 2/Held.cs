@@ -24,6 +24,9 @@ namespace Mythical_Masters_2
             Intilligenz = pIntilligenz;
         }
 
+        public Held() { }
+
+
         public virtual int angriff(int bonus_wert)
         {
             return Stärke + bonus_wert;

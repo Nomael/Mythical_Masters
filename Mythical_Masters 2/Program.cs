@@ -48,6 +48,31 @@ namespace Mythical_Masters_2
             }
         }
 
+        static Held Zufälliger_Held()
+        {
+            Held held = new Held();
+            int nummer;
+            Random random= new Random();
+            nummer = random.Next(0, 2);
+
+            switch (nummer)
+            {
+                case 0:
+                    held = new Krieger();
+                    break;
+                case 1:
+                    held = new Magier();
+                    break;
+                case 2:
+                    held = new Schurke();
+                    break;
+                default: held = new Schurke();
+                    break;
+             }
+            return held;
+
+        }
+
 
         static Held ZufälligeHeldenwerte(Held figur)
         {
@@ -159,6 +184,7 @@ namespace Mythical_Masters_2
                 Console.WriteLine("Magier Erstellen : 1");
                 Console.WriteLine("Krieger Erstellen : 2");
                 Console.WriteLine("Schurke Erstellen : 3");
+                Console.WriteLine("Zufällig : 4");
                 Console.WriteLine("(END) = Zurück");
                 Console.WriteLine("########");
                 eingabe = Convert.ToString(Console.ReadLine()).ToLower();
@@ -177,7 +203,10 @@ namespace Mythical_Masters_2
                         Figur = new Schurke();
                         
                         goto default;
-
+                    case "4":
+                        Figur = Zufälliger_Held();
+                        goto default;
+                        break;
 
                     default:
                         Console.WriteLine("Zufällige werte ? ");
